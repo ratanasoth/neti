@@ -8,7 +8,8 @@ class Admin extends CI_Controller{
     }
     public function index()
     {
-        
+        $data['title']="Net I - Administration";
+        $this->load->view("master/header",$data);
     }
     public function login()
     {
