@@ -39,6 +39,7 @@ class Page extends CI_Controller{
             redirect('admin/login');
         }
         $data['title'] = "New Page";
+        $data['sms'] ="";
         $this->load->view('master/header', $data);
         $this->load->view('master/page-add');
         $this->load->view('master/footer');
@@ -56,5 +57,20 @@ class Page extends CI_Controller{
         if ($this->form_validation->run()==FALSE) {
             
         }
+        else{
+            $result = $this->pagemodel->addPage();
+            $data['title'] = "New Page";
+            $data['sms'] = $result;
+            $this->load->view('master/header', $data);
+            $this->load->view('master/page-add');
+            $this->load->view('master/footer');
+        }
+    }
+    /**
+     * View all pages here...
+     */
+    public function view()
+    {
+        
     }
 }

@@ -20,7 +20,23 @@ class PageModel extends CI_Model{
      */
     public function addPage()
     {
+        $sms="";
         $title = $this->input->post('title');
         $des = $this->input->post('description');
+        $query = $this->db->get_where('page',array('title'=>$title));
+        if(count($query->result())>0)
+        {
+            $sms = "The page already exist.";
+        }
+        else{
+            $data = array(
+                'title'=>$title,
+                'description'=>$des,
+                'url'=>'page/view/'.pageid
+            );
+            $this->db->insert('page',$data);
+            $sms="New page has been created.";
+        }
+        return $sms;
     }
 }
