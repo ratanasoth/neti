@@ -6,7 +6,7 @@
         <div class="col-sm-4">
             <h3 class="text-info">User Login</h3>
             <hr>
-            <form action="#" method="post">
+            <form action="<?php echo base_url('admin/dologin'); ?>" method="post">
                 <div class="form-group">
                     <label for="username">User Name</label>
                     <input type="text" class="form-control" id="username" name="username" />

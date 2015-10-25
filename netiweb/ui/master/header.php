@@ -58,7 +58,7 @@
                     </ul>
                   </li>
                   <li><a href="#"><i class="glyphicon glyphicon-file"></i> Other Pages</a></li>
-                  <li><a href="#"><i class="glyphicon glyphicon-user"></i> Users</a></li>
+                  <li><a href="<?php echo base_url('user'); ?>"><i class="glyphicon glyphicon-user"></i> Users</a></li>
                 </ul>
                <!-- right menu bar for user profile -->
                 <ul class="nav navbar-nav navbar-right" id="nav2">

@@ -38,7 +38,7 @@
                     <td>
                         <a href='<?php echo base_url('user/delete/'.$user->userid);?>' title="Delete" onclick="return confirm('Do you want to delete it?')"><i class="glyphicon glyphicon-remove text-danger"></i></a>
                         &nbsp;&nbsp;
-                        <a href="#" title='Edit'><i class="glyphicon glyphicon-edit"></i></a>
+                        <a href="<?php echo base_url('user/edituser/'.$user->userid); ?>" title='Edit'><i class="glyphicon glyphicon-edit"></i></a>
                     </td>
                 </tr>
                 <?php } ?>
