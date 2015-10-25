@@ -1,16 +1,20 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- * Description of CareerModel
+ * The CareeModel will contain all data functions for career page processing.
  *
- * @author Vongkol
+ * @author:
+ * @email:
+ * @phone:
  */
-class CareerModel {
-    //put your code here
+class CareerModel extends CI_Model {
+    // invoke parent's constructor
+    public function __construct() {
+        parent::__construct();
+    }
+    // default action
+    public function index()
+    {
+        
+    }
 }

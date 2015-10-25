@@ -57,7 +57,7 @@
                       <li><a href="#">&raquo; Partner</a></li>
                     </ul>
                   </li>
-                  <li><a href="#"><i class="glyphicon glyphicon-file"></i> Other Pages</a></li>
+                  <li><a href="<?php echo base_url('page'); ?>"><i class="glyphicon glyphicon-file"></i> Other Pages</a></li>
                   <li><a href="<?php echo base_url('user'); ?>"><i class="glyphicon glyphicon-user"></i> Users</a></li>
                 </ul>
                <!-- right menu bar for user profile -->
@@ -78,5 +78,5 @@
             </div><!-- /.container-fluid -->
           </nav>
     
-        <div class="container" style="margin-top: 27px">
+        <div class="container" style="margin-top: 27px; margin-bottom: 36px;">
             
