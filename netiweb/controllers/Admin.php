@@ -9,6 +9,9 @@ class Admin extends CI_Controller{
     }
     public function index()
     {
+        if ($this->session->userid==false) {
+            redirect(base_url('admin/login'));
+        }
         $data['title']="Net I - Administration";
         $this->load->view("master/header",$data);
     }
@@ -29,11 +32,33 @@ class Admin extends CI_Controller{
         $pass = $this->input->post('pass');
         $user = $this->usermodel->getUserByName($username);
         if (count($user)>0) {
-            
+            if ($username==$user[0]->username) {
+                if ($user[0]->password == md5($pass)) {
+                    // save user data to session variables
+                    $this->session->set_userdata(array(
+                    'userid'=>$user[0]->userid,
+                    'username'=>$user[0]->username,
+                    'password'=>$user[0]->password
+                    ));
+                    redirect(base_url('admin'));
+                }
+                else
+                {
+                    redirect(base_url('admin/login'));
+                }
+            }
         }
         else
         {
             redirect(base_url('admin/login'));
         }
+    }
+    /**
+     * Sign out function
+     */
+    public function logOut()
+    {
+        $this->session->sess_destroy();
+        redirect(base_url('admin/login'));
     }
 }

@@ -14,6 +14,9 @@ class User extends CI_Controller{
      * The default function to get all users from table users.
      */
     public function index(){
+         if ($this->session->userid==false) {
+            redirect(base_url('admin/login'));
+        }
         $data['title'] = "User List";
         $data['users'] = $this->usermodel->getUsers();
         $this->load->view('master/header', $data);
@@ -25,6 +28,9 @@ class User extends CI_Controller{
      */
     public function delete()
     {
+         if ($this->session->userid==false) {
+            redirect(base_url('admin/login'));
+        }
         $id = $this->uri->segment(3);
         $this->usermodel->deleteUser($id);
         redirect(base_url('user'));
@@ -34,6 +40,9 @@ class User extends CI_Controller{
      */
     public function newUser()
     {
+         if ($this->session->userid==false) {
+            redirect(base_url('admin/login'));
+        }
         $data['title'] = "Add New User";
         $data['sms']="";
         $this->load->view('master/header', $data);
@@ -46,6 +55,9 @@ class User extends CI_Controller{
      */
     public function add()
     {
+         if ($this->session->userid==false) {
+            redirect(base_url('admin/login'));
+        }
        $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|min_length[3]|max_length[30]');
        $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|min_length[3]|max_length[30]');
        $this->form_validation->set_rules('email', 'Email', 'trim|required|min_length[3]|max_length[30]');
@@ -78,6 +90,9 @@ class User extends CI_Controller{
      */
     public function editUser()
     {
+         if ($this->session->userid==false) {
+            redirect(base_url('admin/login'));
+        }
         $id =  $this->uri->segment(3);
         $data['user'] = $this->usermodel->getUserById($id);
         $data['title'] = "Edit User";
@@ -91,6 +106,9 @@ class User extends CI_Controller{
      */
     public function edit()
     {
+         if ($this->session->userid==false) {
+            redirect(base_url('admin/login'));
+        }
         // validate basic information
        $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|min_length[3]|max_length[30]');
        $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|min_length[3]|max_length[30]');
