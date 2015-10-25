@@ -79,8 +79,9 @@ class UserModel extends CI_Model {
     /**
      * Thi function will return a user by its user nmae.
      */
-    public function getUserByName($username)
+    public function getUserByName()
     {
+        
         $query = $this->db->get_where('users',array('username'=>$username));
         return $query->result();
     }

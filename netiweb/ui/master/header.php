@@ -52,7 +52,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="#">&raquo; About Us</a></li>
                       <li><a href="#">&raquo; Contact Us</a></li>
-                      <li><a href="#">&raquo; Career</a></li>
+                      <li><a href="<?php echo base_url('career'); ?>">&raquo; Career</a></li>
                       <li><a href="#">&raquo; Our Services</a></li>
                       <li><a href="#">&raquo; Partner</a></li>
                     </ul>
