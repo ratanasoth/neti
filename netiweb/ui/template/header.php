@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <li><a href="#">Customers</a></li>
                   <li><a href="#">Career</a></li>
                   <li><a href="#">About Us</a></li>
-                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="<?php echo base_url('contactus'); ?>">Contact Us</a></li>
                 </ul>
                
               </div><!-- /.navbar-collapse -->

@@ -237,3 +237,7 @@ h4{
 .text-white{
     color: #FFF;
 }
+
+.box{
+    background: red;
+}
