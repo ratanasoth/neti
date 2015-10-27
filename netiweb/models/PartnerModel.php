@@ -9,17 +9,7 @@
 class PartnerModel extends CI_Model{
     
     private $partner = "partners";
-    
-    /*
-     * This function is for counting data of partner
-     * Author: Theary RIN
-     */
-    public function count_partner(){
-        
-        $this->db->select("{$this->partner}.partnerid");
-        return $this->db->get($this->partner)->num_rows();
-    }
-
+	
     /*
      * This function is for get partner
      * Author: Theary RIN
