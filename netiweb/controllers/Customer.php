@@ -26,6 +26,14 @@ class Customer extends CI_Controller {
         $this->load->view('master/customer_list', $data);
         $this->load->view('master/footer');
     }
+    public function customerList()
+    {
+        $data['title'] = "Our Customer";
+        $data['customers'] = $this->customermodel->getCustomers();
+        $this->load->view('template/header', $data);
+        $this->load->view('home/customer-list', $data);
+        $this->load->view('template/footer');
+    }
     public function newcustomer(){
           if ($this->session->userid == false) {
             redirect(base_url('admin/login'));

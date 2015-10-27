@@ -19,6 +19,11 @@ class CustomerModel extends CI_Model{
         $this->db->order_by("{$this->customer}.customerid","DESC");
         return $this->db->get($this->customer);
     }
+    public function getCustomers()
+    {
+        $query = $this->db->get('customers');
+        return $query->result();
+    }
     /*
      * This function is for checking customer name
      * Author: Theary RIN

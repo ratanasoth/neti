@@ -52,3 +52,8 @@
         </form>
     </div>
 </div>
+<script>
+    $(function(){
+        $("#contact").css('background','#428bca');
+    });
+</script>

@@ -30,3 +30,8 @@
         </ul>
     </div>
 </div>
+<script>
+    $(function(){
+        $("#about").css('background','#428bca');
+    });
+</script>

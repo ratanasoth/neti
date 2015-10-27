@@ -62,3 +62,8 @@
         <p class="text-justify text-primary">Candidates who meet the requirements from the above should updated and submit CV to Net I Solutions Co., Ltd no later than 20 February 2013, through email info@netisolutions.biz or to #50B, Russian Blvd, Sangkat Depo II, Khan Tuol kork, Phnom Penh, Cambodia</p>
     </div>
 </div>
+<script>
+    $(function(){
+        $("#career").css('background','#428bca');
+    });
+</script>

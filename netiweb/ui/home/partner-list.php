@@ -25,3 +25,8 @@
         </ul>
     </div>
 </div>
+<script>
+    $(function(){
+        $("#partner").css('background','#428bca');
+    });
+</script>

@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta name="description" content="Net I, Net I Solutions, Net I Software Solutions, Net I Network Solutions, Mobile Site Solutions">
         <meta name="keywords" content="Net I, Solutions, Network, Mobile Site, Camera Security, Server, Windows, Linux, Mail Server">
         <meta name="author" content="Net I Solutions , Develop by HENG Vongkol">
-        <title><?php $title; ?></title>
+        <title><?php echo $title; ?></title>
         <!-- End of Information Section -->
         <!-- Start CSS and JavaScript Link Section  -->
         <link href="<?php echo base_url('assets/css/bootstrap.min.css');?>" rel="stylesheet" />
@@ -61,8 +61,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav pull-right" id="nav1">
-                  <li><a href="<?php echo base_url(); ?>">Home</a></li>
-                  <li class="dropdown">
+                    <li id="home"><a href="<?php echo base_url(); ?>">Home</a></li>
+                    <li class="dropdown" id="service">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Our Services <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">&raquo; IT Solutions</a></li>
@@ -71,11 +71,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <li><a href="#">&raquo; Mobile Site Services</a></li>
                     </ul>
                   </li>
-                  <li><a href="<?php echo base_url('partner/partnerlist'); ?>">Our Partners</a></li>
-                  <li><a href="#">Customers</a></li>
-                  <li><a href="<?php echo base_url('career/openjob'); ?>">Career</a></li>
-                  <li><a href="<?php echo base_url('aboutus'); ?>">About Us</a></li>
-                  <li><a href="<?php echo base_url('contactus'); ?>">Contact Us</a></li>
+                  <li id="partner"><a href="<?php echo base_url('partner/partnerlist'); ?>">Our Partners</a></li>
+                  <li id="customer"><a href="<?php echo base_url('customer/customerlist');?>">Customers</a></li>
+                  <li id="career"><a href="<?php echo base_url('career/openjob'); ?>">Career</a></li>
+                  <li id="about"><a href="<?php echo base_url('aboutus'); ?>">About Us</a></li>
+                  <li id="contact"><a href="<?php echo base_url('contactus'); ?>">Contact Us</a></li>
                 </ul>
                
               </div><!-- /.navbar-collapse -->

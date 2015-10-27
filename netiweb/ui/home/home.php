@@ -207,4 +207,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         });
     });
 </script>
+<script>
+    $(function(){
+        $("#home").css('background','#428bca');
+    });
+</script>
 <!-- End of Flexi script -->
