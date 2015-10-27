@@ -1,3 +1,31 @@
+.social-button{
+    width: 40px;
+    position: fixed;
+    top:27%;
+    left: 3px;
+    padding: 1px;
+    display: block;
+}
+ul.social-icon{
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+ul.social-icon li{
+    margin:3px 0px; 
+}
+@media (max-width:480px)
+{
+    .social-button{
+        display: none;
+    }
+}
+.logo{
+    color: #9FF;
+    font-size: 18px;
+    margin-left: 12px;
+    font-family: arial;
+}
 .table-caption
 {
     font-size: 18px;
@@ -134,6 +162,7 @@ border-right: none;
   .responstable th:nth-child(2):after {
     display: none;
   }
+
 }
 .responstable td {
   display: block;
@@ -167,4 +196,44 @@ border-right: none;
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+/* Somalida Style */
+.hero-feature {
+    margin-bottom: 0px;
+}
+
+footer {
+    margin: 0px 0;
+}
+
+h4{
+    padding : 10px 5px;
+}
+.margin-navbars{
+    margin-bottom : 0px;
+}
+.marginh4{
+    margin-bottom: 0px
+}
+.navbar-defulfs{
+	background-color:white;
+	border-color:white;
+}
+.navbar-default .navbar-nav > li > a{
+	color:#ffffff;
+}
+.logo{
+	margin-top:5px;
+	}
+.footer-p{
+	padding-bottom: 0px;
+    padding-left: 25px;
+    padding-right: 25px;
+	} 
+.pg-primary
+{
+	background: green;
+}
+.text-white{
+    color: #FFF;
 }

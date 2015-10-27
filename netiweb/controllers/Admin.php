@@ -18,9 +18,9 @@ class Admin extends CI_Controller{
     public function login()
     {
         $data['title'] = "User Authentication";
-        $this->load->view("template/header",$data);
+        $this->load->view("master/header",$data);
         $this->load->view("master/login");
-        $this->load->view("template/footer");
+        $this->load->view("master/footer");
     }
     /**
      * Action to do login.
