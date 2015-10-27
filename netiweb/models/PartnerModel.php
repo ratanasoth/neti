@@ -9,6 +9,7 @@
 class PartnerModel extends CI_Model{
     
     private $partner = "partners";
+<<<<<<< HEAD
     
     /*
      * This function is for counting data of partner
@@ -25,6 +26,9 @@ class PartnerModel extends CI_Model{
         return $query->result();
         
     }
+=======
+	
+>>>>>>> 49c6128e8c6620e933c334cca3d783619f348c66
     /*
      * This function is for get partner
      * Author: Theary RIN

@@ -78,14 +78,14 @@ class Partner extends CI_Controller {
                 $part = "";
             }
             
-            $data = array(
+            $data_insert = array(
                 "partnername" => $this->input->post("partnername"),
                 "partimg" => $part,
                 "img" => $file_name,
                 "url" => $this->input->post("partnerurl")
             );
 
-           $insert =  $this->partnermodel->add_new_partner($data);
+           $insert =  $this->partnermodel->add_new_partner($data_insert);
            if($insert){
                $data["sms"] = "<span class='text-info'>Data has been saved.</span>";
            }else{
