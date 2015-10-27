@@ -71,11 +71,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <li><a href="#">&raquo; Mobile Site Services</a></li>
                     </ul>
                   </li>
-                  <li><a href="#">Our Products</a></li>
-                  <li><a href="#">Our Partners</a></li>
+                  <li><a href="<?php echo base_url('partner/partnerlist'); ?>">Our Partners</a></li>
                   <li><a href="#">Customers</a></li>
-                  <li><a href="#">Career</a></li>
-                  <li><a href="#">About Us</a></li>
+                  <li><a href="<?php echo base_url('career/openjob'); ?>">Career</a></li>
+                  <li><a href="<?php echo base_url('aboutus'); ?>">About Us</a></li>
                   <li><a href="<?php echo base_url('contactus'); ?>">Contact Us</a></li>
                 </ul>
                

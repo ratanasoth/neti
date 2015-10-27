@@ -1,10 +1,10 @@
 
-<div class="row" style="background: url(<?php echo base_url('assets/images/bg.png'); ?>) repeat;">
+<div class="row">
     <div class="col-sm-12">
-        <h4 class="text-white" style="padding: 3px;">Contact Us</h4>
+        <h3 class="text-primary"><b>Contact Us</b></h3>
+        <hr/>
     </div>
 </div>
-<br/>
 <div class="row">
     <div class="col-sm-7">
         

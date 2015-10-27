@@ -19,7 +19,12 @@ class PartnerModel extends CI_Model{
         $this->db->select("{$this->partner}.partnerid");
         return $this->db->get($this->partner)->num_rows();
     }
-
+    public function getPartners()
+    {
+        $query = $this->db->get('partners');
+        return $query->result();
+        
+    }
     /*
      * This function is for get partner
      * Author: Theary RIN

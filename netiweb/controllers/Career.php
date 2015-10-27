@@ -16,6 +16,14 @@ class Career extends CI_Controller{
         $this->load->model("careermodel");
         
     }
+    //list available careers
+    public function openJob()
+    {
+        $data['title'] = "Careers";
+        $this->load->view('template/header', $data);
+        $this->load->view('home/career');
+        $this->load->view('template/footer');
+    }
     // default action
     public function index()
     {

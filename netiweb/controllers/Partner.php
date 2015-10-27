@@ -25,7 +25,13 @@ class Partner extends CI_Controller {
         $this->load->view('master/partner_list', $data);
         $this->load->view('master/footer');
     }
-
+    public function partnerList(){
+        $data['title'] = "Our Partners";
+        $data['partners'] = $this->partnermodel->getPartners();
+        $this->load->view('template/header',$data);
+        $this->load->view('home/partner-list',$data);
+        $this->load->view('template/footer');
+    }
     /*
      * This function is for add new partner
      * Author: Theary RIN
