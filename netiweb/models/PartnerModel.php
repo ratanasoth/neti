@@ -19,6 +19,7 @@ class PartnerModel extends CI_Model{
         $this->db->select("{$this->partner}.partnerid");
         return $this->db->get($this->partner)->num_rows();
     }
+    
     public function getPartners()
     {
         $query = $this->db->get('partners');
@@ -33,7 +34,7 @@ class PartnerModel extends CI_Model{
     public function get_partner(){
         
         $this->db->select("*");
-        $this->db->order_by("{$this->partner}.partnerid","DESC");
+        $this->db->order_by("{$this->partner}.orderno","DESC");
         
         return $this->db->get($this->partner);
         
