@@ -9,16 +9,16 @@
 class About extends CI_Controller{
     public function __construct() {
         parent::__construct();
-        $this->load->model('aboutmodel');
+        $this->load->model('AboutModel');
     }
     
     //Default function
     public function index(){
-         if ($this->session->userid==false) {
+        if ($this->session->userid==false) {
             redirect(base_url('admin/login'));
         }
         $data['title'] = "About Us";
-        $data['about'] = $this->aboutmodel->get_about();
+        $data['about'] = $this->AboutModel->get_about();
         $this->load->view('master/header', $data);
         $this->load->view('master/about_list', $data);
         $this->load->view('master/footer');
@@ -34,7 +34,7 @@ class About extends CI_Controller{
             redirect(base_url('admin/login'));
         }
         $data['title'] = "About Us";
-        $data['about'] = $this->aboutmodel->get_about($id);
+        $data['about'] = $this->AboutModel->get_about($id);
         $this->load->view('master/header', $data);
         $this->load->view('master/about_edit', $data);
         $this->load->view('master/footer');
@@ -48,7 +48,7 @@ class About extends CI_Controller{
         
         $title = $this->input->post("title");
         $des = $this->input->post("description");
-        $result = $this->aboutmodel->do_edit_about($title, $des, $id);
+        $result = $this->AboutModel->do_edit_about($title, $des, $id);
         if ($result) {
             redirect("about");
         } else {

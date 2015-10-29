@@ -10,7 +10,7 @@ class Partner extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('partnermodel');
+        $this->load->model('PartnerModel');
     }
 
     //Default function
@@ -20,14 +20,15 @@ class Partner extends CI_Controller {
             redirect(base_url('admin/login'));
         }
         $data['title'] = "Partner List";
-        $data['list_partner'] = $this->partnermodel->get_partner();
+        $data['list_partner'] = $this->PartnerModel->get_partner();
         $this->load->view('master/header', $data);
         $this->load->view('master/partner_list', $data);
         $this->load->view('master/footer');
     }
     public function partnerList(){
+        
         $data['title'] = "Our Partners";
-        $data['partners'] = $this->partnermodel->getPartners();
+        $data['partners'] = $this->PartnerModel->getPartners();
         $this->load->view('template/header',$data);
         $this->load->view('home/partner-list',$data);
         $this->load->view('template/footer');
@@ -64,7 +65,7 @@ class Partner extends CI_Controller {
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
         $this->load->library("upload", $config);
         $partner_name =  $this->input->post("partnername");
-        $check = $this->partnermodel->check_partner($partner_name);
+        $check = $this->PartnerModel->check_partner($partner_name);
         if($check){
             $data["sms"] ="<span class='text-danger'>This partner has already.</span>";
         }else{
@@ -82,10 +83,11 @@ class Partner extends CI_Controller {
                 "partnername" => $this->input->post("partnername"),
                 "partimg" => $part,
                 "img" => $file_name,
-                "url" => $this->input->post("partnerurl")
+                "url" => $this->input->post("partnerurl"),
+                "orderno" => $this->input->post("orderno")
             );
 
-           $insert =  $this->partnermodel->add_new_partner($data_insert);
+           $insert =  $this->PartnerModel->add_new_partner($data_insert);
            if($insert){
                $data["sms"] = "<span class='text-info'>Data has been saved.</span>";
            }else{
@@ -102,7 +104,7 @@ class Partner extends CI_Controller {
      */
     public function delete_partner($partner_id){
         
-        $get_partner = $this->partnermodel->delete_partner($partner_id);
+        $get_partner = $this->PartnerModel->delete_partner($partner_id);
         redirect("partner");
     }
 

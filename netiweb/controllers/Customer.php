@@ -11,7 +11,7 @@ class Customer extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('customermodel');
+        $this->load->model('CustomerModel');
     }
 
     //Default function
@@ -21,7 +21,7 @@ class Customer extends CI_Controller {
             redirect(base_url('admin/login'));
         }
         $data['title'] = "Customer List";
-        $data['list_customer'] = $this->customermodel->get_customer();
+        $data['list_customer'] = $this->CustomerModel->get_customer();
         $this->load->view('master/header', $data);
         $this->load->view('master/customer_list', $data);
         $this->load->view('master/footer');
@@ -29,7 +29,7 @@ class Customer extends CI_Controller {
     public function customerList()
     {
         $data['title'] = "Our Customer";
-        $data['customers'] = $this->customermodel->getCustomers();
+        $data['customers'] = $this->CustomerModel->getCustomers();
         $this->load->view('template/header', $data);
         $this->load->view('home/customer-list', $data);
         $this->load->view('template/footer');
@@ -52,7 +52,7 @@ class Customer extends CI_Controller {
         $config['allowed_types'] = 'gif|jpg|png|jpeg';
         $this->load->library("upload", $config);
         $customer_name =  $this->input->post("customername");
-        $check = $this->customermodel->check_customer($customer_name);
+        $check = $this->CustomerModel->check_customer($customer_name);
         if($check){
             $data["sms"] ="<span class='text-danger'>This customer has already.</span>";
         }else{
@@ -70,10 +70,11 @@ class Customer extends CI_Controller {
                 "customername" => $this->input->post("customername"),
                 "partimg" => $part,
                 "img" => $file_name,
-                "url" => $this->input->post("customerurl")
+                "url" => $this->input->post("customerurl"),
+                "orderno" => $this->input->post("orderno")
             );
 
-           $insert =  $this->customermodel->add_new_customer($data_insert);
+           $insert =  $this->CustomerModel->add_new_customer($data_insert);
            if($insert){
                $data["sms"] = "<span class='text-info'>Data has been saved.</span>";
            }else{
@@ -90,7 +91,7 @@ class Customer extends CI_Controller {
      */
     public function delete_customer($customer_id){
         
-        $get_customer = $this->customermodel->delete_customer($customer_id);
+        $get_customer = $this->CustomerModel->delete_customer($customer_id);
         redirect("customer");
     }
 }
