@@ -16,6 +16,12 @@
                 </div>*
             </div>
             <div class="form-group">
+                <label class="control-label col-sm-2">Order Number :</label>
+                <div class="col-sm-4">
+                    <input type="number" name="orderno" placeholder="Order Number" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
                 <label class="control-label col-sm-2">Partner URL :</label>
                 <div class="col-sm-4">
                     <input type="url" name="partnerurl" placeholder="Partner URL" class="form-control">
