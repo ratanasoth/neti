@@ -45,12 +45,19 @@
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav" id="nav1">
-                    <li><a href="#"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-home"></i> Home<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<?php echo base_url("slideshow");?>">&raquo; Slideshow</a></li>
+                            <li><a href="<?php echo base_url("service");?>">&raquo; Services</a></li>
+                            <li><a href="<?php echo base_url("news");?>">&raquo; News</a></li>
+                        </ul>
+                    </li>
                   <li><a href="#">Menu</a></li>
                   <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-file"></i> Main Pages <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="<?php echo base_url("about");?>">&raquo; About Us</a></li>
+                      <li><a href="<?php echo base_url("about");?>">&raquo; About Us</a></li>
                       <li><a href="#">&raquo; Contact Us</a></li>
                       <li><a href="<?php echo base_url('career'); ?>">&raquo; Career</a></li>
                       <li><a href="#">&raquo; Our Services</a></li>

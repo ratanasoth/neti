@@ -11,7 +11,7 @@ class Page extends CI_Controller{
     //invoke parent's constructor
     public function __construct() {
         parent::__construct();
-        $this->load->model('pagemodel');
+        $this->load->model('PageModel');
     }
     /**
      * Default action will list all created pages.
@@ -23,7 +23,7 @@ class Page extends CI_Controller{
             redirect('admin/login');
         }
         $data['title'] = "Page List";
-        $data['pages'] = $this->pagemodel->getPages();
+        $data['pages'] = $this->PageModel->getPages();
         $this->load->view('master/header', $data);
         $this->load->view('master/page-list');
         $this->load->view('master/footer');
@@ -58,7 +58,7 @@ class Page extends CI_Controller{
             redirect(base_url('page/newpage'));
         }
         else{
-            $result = $this->pagemodel->addPage();
+            $result = $this->PageModel->addPage();
             $data['title'] = "New Page";
             $data['sms'] = $result;
             $this->load->view('master/header', $data);

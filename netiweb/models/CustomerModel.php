@@ -16,7 +16,7 @@ class CustomerModel extends CI_Model{
     public function get_customer(){
         
         $this->db->select("*");
-        $this->db->order_by("{$this->customer}.customerid","DESC");
+        $this->db->order_by("{$this->customer}.orderno","DESC");
         return $this->db->get($this->customer);
     }
     public function getCustomers()

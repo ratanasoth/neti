@@ -25,7 +25,7 @@
                     
                 </tr>
             </thead>
-            <tbody
+            <tbody>
                 <?php foreach($users as $user){ ?>
                 <tr>
                     <td><?php echo $user->userid; ?></td>
@@ -42,6 +42,7 @@
                     </td>
                 </tr>
                 <?php } ?>
+            </tbody>
         </table>
     </div>
 </div>

@@ -14,7 +14,7 @@ class About extends CI_Controller{
     
     //Default function
     public function index(){
-         if ($this->session->userid==false) {
+        if ($this->session->userid==false) {
             redirect(base_url('admin/login'));
         }
         $data['title'] = "About Us";

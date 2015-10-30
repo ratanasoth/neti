@@ -8,7 +8,7 @@
 class User extends CI_Controller{
     public function __construct() {
         parent::__construct();
-        $this->load->model('usermodel');
+        $this->load->model('UserModel');
     }
     /**
      * The default function to get all users from table users.
@@ -18,7 +18,7 @@ class User extends CI_Controller{
             redirect(base_url('admin/login'));
         }
         $data['title'] = "User List";
-        $data['users'] = $this->usermodel->getUsers();
+        $data['users'] = $this->UserModel->getUsers();
         $this->load->view('master/header', $data);
         $this->load->view('master/user-list', $data);
         $this->load->view('master/footer');
@@ -32,7 +32,7 @@ class User extends CI_Controller{
             redirect(base_url('admin/login'));
         }
         $id = $this->uri->segment(3);
-        $this->usermodel->deleteUser($id);
+        $this->UserModel->deleteUser($id);
         redirect(base_url('user'));
     }
     /**
@@ -71,7 +71,7 @@ class User extends CI_Controller{
             $this->load->view('master/footer');
        }
        else {
-        $r=$this->usermodel->addUser();
+        $r=$this->UserModel->addUser();
         $data['title'] = "Add New User";
         if ($r) {
             $data['sms'] = "<span class='text-info'>Data has been saved.</span>";
@@ -94,7 +94,7 @@ class User extends CI_Controller{
             redirect(base_url('admin/login'));
         }
         $id =  $this->uri->segment(3);
-        $data['user'] = $this->usermodel->getUserById($id);
+        $data['user'] = $this->UserModel->getUserById($id);
         $data['title'] = "Edit User";
         $data['sms']="";
         $this->load->view('master/header', $data);
@@ -125,12 +125,12 @@ class User extends CI_Controller{
             $data['title'] = "Edit User";
             $data['sms'] = "<span class='text-danger'>Invalid data entry! Please check again.</span>";
             $this->load->view('master/header', $data);
-            $data['user'] = $this->usermodel->getUserById($id);
+            $data['user'] = $this->UserModel->getUserById($id);
             $this->load->view('master/user-edit',$data);
             $this->load->view('master/footer');
        }
        else{
-           $this->usermodel->editUser($id);
+           $this->UserModel->editUser($id);
            redirect(base_url('user'));
        }
     }

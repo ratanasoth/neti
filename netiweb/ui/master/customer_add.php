@@ -16,6 +16,12 @@
                 </div>*
             </div>
             <div class="form-group">
+                <label class="control-label col-sm-2">Order Number :</label>
+                <div class="col-sm-4">
+                    <input type="number" name="orderno" placeholder="Order Number" class="form-control" required="true">
+                </div>
+            </div>
+            <div class="form-group">
                 <label class="control-label col-sm-2">Customer URL :</label>
                 <div class="col-sm-4">
                     <input type="url" name="customerurl" placeholder="Customer URL" class="form-control">
