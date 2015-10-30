@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-sm-12">
-        <h3 class="text-primary"><b>Our Partners</b></h3><hr/>
+        <h3 class="text-primary"><b>Our Partners</b></h3><hr class="hr"/>
     </div>
 </div>
 <div class="row">

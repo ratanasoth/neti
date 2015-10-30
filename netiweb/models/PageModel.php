@@ -31,10 +31,16 @@ class PageModel extends CI_Model{
         else{
             $data = array(
                 'title'=>$title,
-                'description'=>$des,
-                'url'=>'page/view/'.pageid
+                'description'=>$des
             );
             $this->db->insert('page',$data);
+            
+           $page_id = $this->db->insert_id();
+           $data1 = array(
+                'url' => 'page/view/'.$page_id
+            );
+            $this->db->where('pageid',$page_id);
+            $this->db->update('page', $data1);
             $sms="New page has been created.";
         }
         return $sms;

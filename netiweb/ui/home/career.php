@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-sm-12">
         <h3 class="text-primary"><b>Careers</b></h3>
-        <hr/>
+        <hr class="hr"/>
     </div>
 </div>
 <div class="row">

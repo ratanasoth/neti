@@ -1,13 +1,15 @@
 <div class="row">
     <div class="col-sm-12">
-        <h3 class="text-primary"><b>About Us</b></h3><hr/>
+        <h3 class="text-primary"><b>About Us</b></h3>
+        <hr class="hr" />
+         
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
         <strong class="text-success">
             Net I Solutions was established in 2003.
-        </strong>
+        </strong><br/>
         <p class="text-justify">
             Its founding was based on the understanding that most management issues in 
             industries could be resolved through the effective uses of information technology. 

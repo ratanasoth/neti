@@ -6,7 +6,8 @@
     </div>
     <div class="col-sm-6" style="text-align: right">
         <input type="button" value="Save" class="btn btn-primary btn-sm" onclick="sumitForm()" />
-        <input type="reset" value="Cancel" class="btn btn-danger btn-sm" />
+        <input type="button" id="btnReset" value="Cancel" class="btn btn-danger btn-sm" />
+        <a href="<?php echo base_url('page'); ?>" class="btn btn-info btn-sm">Back</a>
     </div>
 </div>
 <hr />
@@ -16,10 +17,9 @@
             <label for="title" class="control-label">Title</label>
             <input type="text" id="title" name="title" class="form-control" />
             <label for="description" class="control-label">Description</label>
-            <textarea id="description" name="description" class="form-control"></textarea>
-             <p id="url">page url will be here...</p>    
+            <textarea id="description" name="description" class="form-control"></textarea> 
         </form>
-        <p><?php echo $sms; ?></p>
+        <p class="text-danger"><?php echo $sms; ?></p>
     </div>
 </div>
 <script src="<?php echo base_url('assets/ckeditor/ckeditor.js'); ?>"></script>
@@ -30,6 +30,11 @@
     };
     function sumitForm()
     {
-        frm.submit();
+        if(confirm('You want to save?'))
+            frm.submit();
     }
+    $("#btnReset").click(function(){
+        frm.reset();
+        $("#description").html("");
+    });
 </script>

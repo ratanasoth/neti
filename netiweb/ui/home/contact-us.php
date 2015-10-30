@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col-sm-12">
         <h3 class="text-primary"><b>Contact Us</b></h3>
-        <hr/>
+        <hr class="hr"/>
     </div>
 </div>
 <div class="row">

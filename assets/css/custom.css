@@ -4,7 +4,7 @@
     top:27%;
     left: 3px;
     padding: 1px;
-    display: block;
+    display: none;
 }
 ul.social-icon{
     list-style: none;
@@ -270,10 +270,21 @@ ul.partner li a{
 @media (max-width:480px)
 {
  
-    ul.partner li,ul.customer-list li{
+    ul.partner li{
         margin: 18px 18px;
     }
-    ul.partner li a, ul.customer-list li a{
+    ul.partner li a{
         padding-bottom: 27px;
     }
+    ul.customer-list li {
+        display: block;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+}
+.hr
+{
+    background: blue;
+    height: 2px;
 }

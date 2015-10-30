@@ -55,7 +55,7 @@ class Page extends CI_Controller{
         }
         $this->form_validation->set_rules('title', 'Title', 'trim|required|min_length[3]|max_length[255]');
         if ($this->form_validation->run()==FALSE) {
-            
+            redirect(base_url('page/newpage'));
         }
         else{
             $result = $this->pagemodel->addPage();
