@@ -32,9 +32,12 @@ class PartnerModel extends CI_Model{
      * This function is for get partner
      * Author: Theary RIN
      */
-    public function get_partner(){
+    public function get_partner($partner_id=NULL){
         
         $this->db->select("*");
+        if($partner_id !=NULL){
+            $this->db->where("{$this->partner}.partnerid",$partner_id);
+        }
         $this->db->order_by("{$this->partner}.orderno","asc");
         
         return $this->db->get($this->partner);
@@ -86,6 +89,16 @@ class PartnerModel extends CI_Model{
         unlink($part_img . $img);
         $this->db->where("{$this->partner}.partnerid", $partner_id);
         $this->db->delete($this->partner);
+        return $this;
+    }
+    /*
+     * This function is for updating data partner
+     * Author: Theary RIN
+     */
+    public function edit_partner($data_update,$partner_id){
+        
+        $this->db->where("{$this->partner}.partnerid",$partner_id);
+        $this->db->update($this->partner,$data_update);
         return $this;
     }
 }

@@ -13,9 +13,12 @@ class CustomerModel extends CI_Model{
      * This function is for get all of data customer
      * Author: Theary RIN
      */
-    public function get_customer(){
+    public function get_customer($customer_id=NULL){
         
         $this->db->select("*");
+        if ($customer_id != NULL) {
+            $this->db->where("{$this->customer}.customerid", $customer_id);
+        }
         $this->db->order_by("{$this->customer}.orderno","asc");
         return $this->db->get($this->customer);
     }
@@ -73,4 +76,14 @@ class CustomerModel extends CI_Model{
         $this->db->delete($this->customer);
         return $this;
     }
+    /*
+     * This function is for edit customer
+     * Author: Theary RIN
+     */
+    public function edit_customer($data_insert, $customer_id) {
+        $this->db->where("{$this->customer}.customerid", $customer_id);
+        $this->db->update($this->customer, $data_insert);
+        return $this;
+    }
+
 }
