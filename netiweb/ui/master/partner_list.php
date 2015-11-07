@@ -37,7 +37,7 @@
                         <td><?php echo $row->orderno; ?></td>
                         <td>
                             <a href="<?php echo base_url("partner/delete_partner/".$row->partnerid);?>" class="btn btn-xs btn-danger" onclick="return confirm('Are you sure want to delete it?');"><i class="glyphicon glyphicon-trash"></i>&nbsp;Delete</a>
-                            <a href="#" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-edit"></i>&nbsp;Eidt</a>
+                            <a href="<?php echo base_url("partner/parnter_edit/".$row->partnerid);?>" class="btn btn-xs btn-success" onclick="return confirm('Are you sure want to edit it?');"><i class="glyphicon glyphicon-edit"></i>&nbsp;Eidt</a>
                         </td>
 
                     
