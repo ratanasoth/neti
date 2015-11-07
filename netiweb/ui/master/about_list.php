@@ -18,10 +18,10 @@ if($about->num_rows()>0){
     </div>
     <div class="col-sm-6">
         <a href="<?php echo base_url("about/edit_about/".$id); ?>" 
-           class="btn btn-success btn-sm pull-right"><i class="glyphicon glyphicon-edit"></i>Edit</a>
+           class="btn btn-success btn-xs pull-right"><i class="glyphicon glyphicon-edit"></i> Edit</a>
     </div>
 </div>
-<div>&nbsp;</div>
+<hr/>
 <div class="row">
     <div class="col-sm-12">
         <?php echo $des;?>

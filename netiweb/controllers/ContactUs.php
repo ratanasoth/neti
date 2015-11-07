@@ -10,6 +10,7 @@ class ContactUs extends CI_Controller{
     public function __construct() {
         parent::__construct();
         $this->load->model('MenuModel');
+        $this->load->model('ContactModel');
     }
     // default action
     public function index()
@@ -21,6 +22,20 @@ class ContactUs extends CI_Controller{
         $this->load->view('template/header',$data);
         $this->load->view('home/contact-us',$data);
         $this->load->view('template/footer',$data);
+    }
+    public function viewcontact(){
+         if ($this->session->userid==false) {
+            redirect(base_url('admin/login'));
+        }
+        $data['title'] = "Contact Us";
+        $data['contact']= $this->ContactModel->getContact();
+        $this->load->view('master/header',$data);
+        $this->load->view('master/contact-list',$data);
+        $this->load->view('master/footer');
+        
+    }
+    public function edit(){
+        
     }
     public function isContainSub($pid)
         {

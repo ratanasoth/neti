@@ -59,7 +59,7 @@
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-file"></i> Main Pages <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                       <li><a href="<?php echo base_url("about");?>">&raquo; About Us</a></li>
-                      <li><a href="#">&raquo; Contact Us</a></li>
+                      <li><a href="<?php echo base_url('contactus/viewcontact'); ?>">&raquo; Contact Us</a></li>
                       <li><a href="<?php echo base_url('career'); ?>">&raquo; Career</a></li>
                       <li><a href="#">&raquo; Our Services</a>
 						
