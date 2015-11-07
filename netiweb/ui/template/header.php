@@ -30,22 +30,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
                 ul#nav1>li>a,ul#nav2>li>a
                 {
-                    color: #BCF;
+                    color: #EEF;
                 }
                 ul#nav1>li>a:hover
                 {
-
                     background: #428bca;
                 }
                 ul#nav1>li>a:focus,ul#nav2>li>a:focus{
-                 color: #036;   
+                 color: #FFF;   
+                 background: #428bca;
                 }
-               
+                ul.sub-menu li a:hover{
+                    background: #afd9ee;
+                }
+                ul#partners li a{
+                    display: inline-block !important;
+                    height: 120px; 
+                    vertical-align: middle !important;
+                    line-height:120px;
+                }
+                @media (max-width:480px){
+                    ul#nav1{
+                        background: #EEF !important;
+                    }
+                    ul#nav1>li>a{
+                        color: #036;
+                    }
+                    ul#nav1>li>a:hover,ul#nav1>li>a:focus{
+                        color: #FFF;
+                    }
+                }
             </style>
     </head>
     <!-- Start body section -->
     <body>
-        <nav class="navbar ch">
+        <nav class="navbar ch" style="position: fixed;z-index: 9999;top:0;left:0;width:100%">
             <div class="container" id="container">
               <!-- Brand and toggle get grouped for better mobile display -->
               <div class="navbar-header">
@@ -54,45 +73,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </button>
                   <a class="navbar-brand" href="<?php echo base_url(); ?>" style="color:#FFF">
                       <img align="left" src="<?php echo base_url('assets/images/neti-logo.png'); ?>" width="45" height="45" style="margin-top:-13px;" />
-                     
+                      <span class="logo-text">&nbsp;&nbsp;Net I Solutions Co., Ltd</span>
                   </a>
               </div>
 
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav pull-right" id="nav1">
-                    <li id="home"><a href="<?php echo base_url(); ?>">Home</a></li>
-                    <li class="dropdown" id="service">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Our Services <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">&raquo; IT Solutions</a></li>
-                      <li><a href="#">&raquo; IT Training</a></li>
-                      <li><a href="#">&raquo; Software Development</a></li>
-                      <li><a href="#">&raquo; Mobile Site Services</a></li>
-                    </ul>
-                  </li>
-                  <li id="partner"><a href="<?php echo base_url('partner/partnerlist'); ?>">Our Partners</a></li>
-                  <li id="customer"><a href="<?php echo base_url('customer/customerlist');?>">Customers</a></li>
-                  <li id="career"><a href="<?php echo base_url('career/openjob'); ?>">Career</a></li>
-                  <li id="about"><a href="<?php echo base_url('aboutus'); ?>">About Us</a></li>
-                  <li id="contact"><a href="<?php echo base_url('contactus'); ?>">Contact Us</a></li>
+                    <!-- Loop through all main menu -->
+                    <?php foreach($menus as $menu){ ?>
+                    <!-- if each main menu has no sub menu, print out as normal -->
+                        <?php if($MyClass->isContainSub($menu->id)=='no'){ ?>
+                    <li id="menu<?php echo $menu->id; ?>"><a href="<?php echo $menu->url; ?>"><?php echo $menu->name; ?></a></li>
+                        <?php } else { ?>
+                    <!-- if the main menu has sub menu -->
+                        <li id="menu<?php echo $menu->id; ?>"><a href="<?php echo $menu->url; ?>" 
+                                                                 class="dropdown-toggle" data-toggle="dropdown" 
+                                                                 role="button" aria-haspopup="true" aria-expanded="false">
+                                                                     <?php echo $menu->name; ?> <span class="caret"></span></a>
+                          <ul class="dropdown-menu sub-menu">                                                 
+                         <?php foreach($subs as $sub){ ?>
+                            <?php if($sub->parentid == $menu->id){ ?>
+                             <li><a href="<?php echo $sub->url; ?>">&raquo; <?php echo $sub->name; ?></a></li>   
+                            <?php } ?>
+                       <?php } ?>
+                          </ul>
+                        </li>   
+                        <?php } ?>
+                      
+                    <?php } ?>
                 </ul>
-               
+              
               </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
           </nav>
-        <div class="social-button" id="social">
-            <ul class="social-icon">
-                <li><a href="#">
-                        <img src="<?php echo base_url('assets/images/facebook.png');?>" width="36"/>
-                </a></li>
-                 <li><a href="#">
-                        <img src="<?php echo base_url('assets/images/gplus.png');?>" width="36"/>
-                </a></li>
-                 <li><a href="#">
-                        <img src="<?php echo base_url('assets/images/linkedin.png');?>" width="36"/>
-                </a></li>
-            </ul>
-        </div>
-        <div class="container" style="margin-top: 27px; margin-bottom: 36px;">
-        
+        <div class="container" style="margin-top: 63px; margin-bottom: 36px;">
+         

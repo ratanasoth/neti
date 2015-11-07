@@ -25,7 +25,7 @@
                 <tr>
                     <td><?php echo $page->pageid; ?></td>
                     <td><?php echo $page->title; ?></td>
-                    <td><?php echo base_url($page->url); ?></td>
+                    <td><?php echo "<a href='". base_url($page->url)."' target='_blank'>". base_url($page->url)."</a>"; ?></td>
                     <td>
                          <a href='<?php echo base_url('page/delete/'.$page->pageid);?>' title="Delete" onclick="return confirm('Do you want to delete it?')"><i class="glyphicon glyphicon-remove text-danger"></i></a>
                         &nbsp;&nbsp;

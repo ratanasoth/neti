@@ -56,8 +56,8 @@
     }
      var loadFile = function(event) {
         var output = document.getElementById('partimg');
-        output.width = 200;
-        output.height = 200;
+        output.width = 500;
+        //output.height = 200;
         output.src = URL.createObjectURL(event.target.files[0]);
   };
 </script>

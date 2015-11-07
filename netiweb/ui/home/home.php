@@ -4,31 +4,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- Slide show for Home Page -->
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
+  <?php $j=0;?>
+
   <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+     <?php foreach($slides as $sl){ ?>
+     <li data-target="#carousel-example-generic" data-slide-to="<?php echo $j; $j++; ?>"></li>
+     <?php } ?>
   </ol>
 
   <!-- Wrapper for slides -->
+  <?php $i=0; ?>
   <div class="carousel-inner" role="listbox">
+    <?php foreach($slides as $slide){ ?>
+    <?php if($i==0){ ?>
     <div class="item active">
-        <img src="<?php echo base_url('assets/photo/slide1.png'); ?>" alt="" width="1200">
-      <div class="carousel-caption">
+        <div class="carousel-caption">
       </div>
+        <img src="<?php echo base_url('assets/images/slideshow/'.$slide->img); $i++;?>" alt="" width="1200">
     </div>
-    <div class="item">
-      <img src="<?php echo base_url('assets/photo/slide2.png'); ?>" alt="" width="1200">
-      <div class="carousel-caption">
+    <?php } else{ ?>
+      <div class="item">
+        <div class="carousel-caption">
+      </div>
+        <img src="<?php echo base_url('assets/images/slideshow/'.$slide->img); $i++;?>" alt="" width="1200">
+    </div>
+    <?php } ?>
+    <?php } ?>
 
-      </div>
-    </div>
-    <div class="item">
-      <img src="<?php echo base_url('assets/photo/slide3.png'); ?>" alt="" width="1200">
-      <div class="carousel-caption">
-
-      </div>
-    </div>
   </div>
 
   <!-- Controls -->
@@ -43,13 +45,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <!-- End of slide show section -->
 <!-- Start welcome section -->
-<h3 class="text-primary">Welcome</h3>
+<?php foreach($welcome as $w){ ?>
+<h3 class="text-primary"><?php echo $w->title; ?></h3>
 <blockquote class="text-justify">
-    Net I Solutions was established in 2003, 
-    its founding was based on the understanding that 
-    most management issues in industries could be resolved 
-    through the effective use of information technology.
+   <?php echo $w->description; ?>
 </blockquote>
+<?php } ?>
 <!-- End of welcome section -->
 <!-- Start of services section -->
 <div class="row" style="background: url(<?php echo base_url('assets/images/bg.png'); ?>) repeat;">
@@ -59,64 +60,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <!-- Start thumbnail section -->
 <br/>
- <div class="row">
-  <div class="col-sm-6 col-md-3">
+<div class="row" >
+    <?php foreach($services as $s){ ?>
+    <div class="col-sm-6 col-md-3" style="padding:2px;">
     <div class="thumbnail">
-      <img src="<?php echo base_url('assets/thumb/th1.png'); ?>" alt="IT Solutions">
+      <img src="<?php echo base_url('assets/images/service/'.$s->img); ?>" alt="IT Solutions">
       <div class="caption">
-          <h4 class="text-primary">IT System Integration</h4>
+          <h4 class="text-primary"><?php echo $s->servicename; ?></h4>
           <p class="text-justify">
-            Net I Solutions employs young energetic and dynamic software and hardware 
-            engineers to provide our valuable customers with speediest and most reliable 
-            solutions and follow-up services.
+            <?php echo $s->description; ?>
         </p>
-        <p><a href="#" class="btn btn-primary btn-xs" role="button">Read More</a></p>
+        <p><a href="<?php echo $s->url; ?>" class="btn btn-primary btn-xs" role="button">Read More</a></p>
       </div>
     </div>
   </div>
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <img src="<?php echo base_url('assets/thumb/th3.png'); ?>" alt="IT Solutions">
-      <div class="caption">
-          <h4 class="text-primary">IT Education and Training</h4>
-          <p class="text-justify">
-            As more and more organizations around the world lay emphasis on the role of IT, 
-            requirement of professionals with sound technical knowledge is in demand. 
-            Net i company range of courses ...
-        </p>
-        <p><a href="#" class="btn btn-info btn-xs" role="button">Read More</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <img src="<?php echo base_url('assets/thumb/th4.jpg'); ?>" alt="IT Solutions">
-      <div class="caption">
-          <h4 class="text-primary">Software Development</h4>
-          <p class="text-justify">
-            Software Development is one of our best services. We guarantee to provide 
-            high quality, scalable and secure software packages to our customers for managing 
-            their businesses.
-            
-        </p>
-        <p><a href="#" class="btn btn-success btn-xs" role="button">Read More</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6 col-md-3">
-    <div class="thumbnail">
-      <img src="<?php echo base_url('assets/thumb/th2.jpg'); ?>" alt="IT Solutions">
-      <div class="caption">
-          <h4 class="text-primary">Mobile Site Services</h4>
-          <p class="text-justify">
-            We aim to be the preferred partner in the field of telecommunication project 
-            implementation in Cambodia. Our aim also to export our workforces in telecom 
-            turn-key solutions in ...
-        </p>
-        <p><a href="#" class="btn btn-danger btn-xs" role="button">Read More</a></p>
-      </div>
-    </div>
-  </div>
+  <?php } ?>
+
 </div>
 <!-- End of thumbnail section -->
 <!-- Start of what news section -->
@@ -127,31 +86,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <br/>
 <div class="row">
-    <div class="col-sm-12">
-        <p class="text-primary"><strong>Award Winning 2011</strong></p>
+    <div class="col-sm-12" style="padding:0">
+        <?php foreach($news as $n){ ?>
+        <p class="text-primary"><strong><?php echo $n->newsname; ?></strong></p>
         <p class="text-justify">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Duis vitae aliquam massa. Nunc dapibus a tortor sit amet laoreet. 
-            Sed sit amet sem ut libero fermentum laoreet vitae in mauris. 
-            Maecenas nec mi eu est lacinia elementum nec non elit. 
-            Nulla fermentum consequat nulla nec suscipit. 
-            Maecenas ac enim et ligula porta maximus. Lorem ipsum dolor sit amet, 
-            consectetur adipiscing elit. Proin leo quam, dignissim ut ullamcorper a, 
-            luctus in ipsum. Curabitur mattis, purus vel efficitur fringilla, odio urna lobortis magna, 
-            at viverra ex urna eget nisi.
+           <?php echo $n->description; ?>
         </p>
-        <p class="text-primary"><strong>ICT Seminar 2015</strong></p>
-        <p class="text-justify">
-            Pellentesque accumsan nisl dui, eu pellentesque lacus sollicitudin in. 
-            Vestibulum vel ultricies magna. In hac habitasse platea dictumst. 
-            Vivamus at pharetra tellus. Suspendisse ultrices nunc at luctus facilisis. 
-            Donec at congue sem. Cras nisi nulla, vulputate ac neque non, 
-            luctus vulputate arcu. Nam turpis sapien, elementum vel lacinia eu, fringilla 
-            scelerisque tellus. Sed urna orci, pharetra quis orci ut, posuere euismod nunc. 
-            Nunc pulvinar velit urna, vitae sollicitudin eros pretium in. 
-            Pellentesque varius neque neque, sit amet elementum leo convallis id. 
-            Nunc eu auctor erat, quis pulvinar ligula.
-        </p>
+        <?php } ?>
+       
     </div>
 </div>
 <!-- End of what is news section -->
@@ -163,17 +105,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <br/>
 <div class='row'>
-    <div class='col-sm-12'>
+    <div class='col-sm-12' style="padding:0">
         <ul id='partners'>
-            <li><img src="<?php echo base_url('assets/images/partner/microsoft.png') ; ?>" /></li>
-            <li><img src="<?php echo base_url('assets/images/partner/android.png') ; ?>" /></li>
-            <li><img src="<?php echo base_url('assets/images/partner/facebook.png') ; ?>" /></li>
-            <li><img src="<?php echo base_url('assets/images/partner/line.png') ; ?>" /></li>
-            <li><img src="<?php echo base_url('assets/images/partner/skype.png') ; ?>" /></li>
-            <li><img src="<?php echo base_url('assets/images/partner/drive.png') ; ?>" /></li>
-            <li><img src="<?php echo base_url('assets/images/partner/chat.png') ; ?>" /></li>
-            <li><img src="<?php echo base_url('assets/images/partner/whatsapp.png') ; ?>" /></li>
-            <li><img src="<?php echo base_url('assets/images/partner/photoshop.png') ; ?>" /></li>
+            <?php foreach($partners as $partner){ ?>
+            <li>
+                <a href="<?php echo $partner->url;?>">
+                    <img src="<?php echo base_url('assets/images/partner/'.$partner->img);?>" alt="partner"/>
+                </a>
+            </li>
+            <?php } ?>
         </ul>
     </div>
 </div>
@@ -209,7 +149,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </script>
 <script>
     $(function(){
-        $("#home").css('background','#428bca');
+        $("#menu2").css('background','#428bca');
     });
 </script>
 <!-- End of Flexi script -->

@@ -18,6 +18,10 @@ class ServiceModel extends CI_Model{
         $this->db->insert($this->service,$data);
         return $this;
     }
+    public function getService(){
+        $this->db->order_by('orderno','asc');
+        return $this->db->get('service')->result();
+    }
     /*
      * This function is for selecting data service
      * Author: Theary RIN

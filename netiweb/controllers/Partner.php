@@ -11,6 +11,7 @@ class Partner extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('PartnerModel');
+        $this->load->model('MenuModel');
     }
 
     //Default function
@@ -28,10 +29,25 @@ class Partner extends CI_Controller {
     public function partnerList(){
         
         $data['title'] = "Our Partners";
+        $data['menus'] = $this->MenuModel->getMainMenu();
+        $data['subs'] = $this->MenuModel->getSubMenu();
+        $data['MyClass'] =  $this;
         $data['partners'] = $this->PartnerModel->getPartners();
         $this->load->view('template/header',$data);
         $this->load->view('home/partner-list',$data);
         $this->load->view('template/footer');
+    }
+    public function isContainSub($pid)
+    {
+        $count = $this->MenuModel->countSub($pid);
+        $state=false;
+        if($count>0){
+            $state='yes';
+        }
+        else{
+            $state='no';
+        }
+        return $state;
     }
     /*
      * This function is for add new partner

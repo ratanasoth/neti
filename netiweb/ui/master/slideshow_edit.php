@@ -43,7 +43,7 @@ if($slide->num_rows()>0){
                     <input type="file" name="image" class="form-control" accept="image/*" onchange="loadFile(event)"> 
                     <input type="hidden" name="old_img" class="form-control" value="<?php echo $image?>"> 
                     <br/>
-                    <img src="<?php echo base_url().$part.$image;?>" id="partimg" width="200" height="200">
+                    <img src="<?php echo base_url().$part.$image;?>" id="partimg" width="500">
                 </div>
             </div>
             <div class="form-group">

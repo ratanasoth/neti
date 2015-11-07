@@ -2,8 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
+    public function __construct() {
+        parent::__construct();
+        $this->load->model('WelcomeModel');
+    }
 
-	/**
+    /**
 	 * Index Page for this controller.
 	 *
 	 * Maps to the following URL
@@ -20,6 +24,30 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+            if ($this->session->userid==false) {
+                redirect(base_url('admin/login'));
+            }
+            $data['title'] = "Welcome";
+            $data['welcome'] = $this->WelcomeModel->getWelcome();
+            $this->load->view('master/header', $data);
+            $this->load->view('master/welcome-list', $data);
+            $this->load->view('master/footer');
 	}
+        public function edit(){
+             if ($this->session->userid==false) {
+                redirect(base_url('admin/login'));
+            }
+            $data['title'] = "Welcome";
+            $data['welcome'] = $this->WelcomeModel->getWelcome();
+            $this->load->view('master/header', $data);
+            $this->load->view('master/welcome-edit', $data);
+            $this->load->view('master/footer');
+        }
+        public function save(){
+           if ($this->session->userid==false) {
+                redirect(base_url('admin/login'));
+            }
+            $this->WelcomeModel->update();
+            redirect(base_url('welcome'));
+        }
 }

@@ -8,25 +8,17 @@
         <ul class="partner">
             <?php foreach($partners as $partner){ ?>
             <li>
-                <a href="<?php echo $partner->url;?>">
-                    <img src="<?php echo base_url('assets/images/partner/'.$partner->img);?>" alt="partner" width="90" />
+                <a href="<?php echo $partner->url;?>" target="_blank">
+                    <img src="<?php echo base_url('assets/images/partner/'.$partner->img);?>" alt="partner" width="100"/>
                 </a>
             </li>
             <?php } ?>
         </ul>
-         <ul class="partner">
-            <?php foreach($partners as $partner){ ?>
-            <li>
-                <a href="<?php echo $partner->url;?>">
-                    <img src="<?php echo base_url('assets/images/partner/'.$partner->img);?>" alt="partner" width="90" />
-                </a>
-            </li>
-            <?php } ?>
-        </ul>
+       
     </div>
 </div>
 <script>
     $(function(){
-        $("#partner").css('background','#428bca');
+        $("#menu10").css('background','#428bca');
     });
 </script>

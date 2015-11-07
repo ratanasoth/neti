@@ -5,11 +5,11 @@
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <ul class="customer-list">
+        <ul class="customer-list text-center">
         <?php foreach($customers as $customer){ ?>
             <li>
-                <a href="<?php echo $customer->url; ?>">
-                    <img src="<?php echo base_url('assets/images/customer/'.$customer->img); ?>" alt="Our partner" width="170" />
+                <a href="<?php echo $customer->url; ?>" target="_blank">
+                    <img src="<?php echo base_url('assets/images/customer/'.$customer->img); ?>" alt="Our partner" width="200" />
                 </a>
             </li>
         <?php } ?>
@@ -18,6 +18,6 @@
 </div>
 <script>
     $(function(){
-        $("#customer").css('background','#428bca');
+        $("#menu11").css('background','#428bca');
     });
 </script>

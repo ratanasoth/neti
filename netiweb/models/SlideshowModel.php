@@ -28,7 +28,7 @@ class SlideshowModel extends CI_Model{
         if ($id != NULL) {
             $this->db->where("{$this->slide}.slideshowid", $id);
         }
-        $this->db->order_by("{$this->slide}.orderno", "DESC");
+        $this->db->order_by("{$this->slide}.orderno", "asc");
         return $this->db->get($this->slide);
     }
     /*
@@ -64,5 +64,15 @@ class SlideshowModel extends CI_Model{
         $this->db->where("{$this->slide}.slideshowid", $slideshow_id);
         $this->db->delete($this->slide);
         return $this;
+    }
+    public function getSlide()
+    {
+        $this->db->order_by('orderno','asc');
+        $query = $this->db->get('slideshow');
+        return $query->result();
+    }
+    // get welcome text from welcome table
+    public function getWelcome(){
+        return $this->db->get('welcome')->result();
     }
 }

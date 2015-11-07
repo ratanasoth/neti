@@ -249,7 +249,7 @@ ul.partner{
 }
 ul.customer-list li{
     display: inline;
-    margin-right: 90px;
+    margin-right: 100px;
     margin-top: 18px;
     padding: 18px 1px;
 }
@@ -267,9 +267,14 @@ ul.partner li a{
     display: inline-block;
     padding-bottom: 45px;
 }
+ul.partner{padding-left: 9px;}
 @media (max-width:480px)
 {
- 
+    .logo-text{
+        font-weight: bold;
+        font-size: 12px;
+    }
+    ul.partner{padding-left:0;}
     ul.partner li{
         margin: 18px 18px;
     }
@@ -282,9 +287,96 @@ ul.partner li a{
         margin: 0;
         padding: 0;
     }
+    .cap1{
+        top:48% !important;
+        color: #FFF !important;
+    }
+    .cap2{
+        left:20%!important;
+
+    }
+    .carousel-indicators{
+        visibility: hidden;
+    }
 }
 .hr
 {
-    background: blue;
+    background: #7AA;
     height: 2px;
+}
+.training-program li{
+    margin: 5px 0;
+}
+.box{
+    border: 1px solid #aaa;
+    border-radius:  9px;
+    box-shadow: 0px 0px 3px #aaa;
+    margin: 7px;
+    padding: 5px 3px;
+    margin-bottom: 27px;
+}
+.feature li{
+    margin: 4px 0;
+    color: #036;
+}
+.box1{
+    border:1px solid #aaa;
+    box-shadow: 0 0 3px #aaa;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    margin: 7px 9px;
+    padding: 0;
+}
+.title{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 8px 4px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    background: #dde;
+    width: 100%;
+    margin:0;
+    margin-bottom: 7px;
+}
+.title1{
+    padding: 8px 4px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 15px;
+    background: #bbf;
+    width: 100%;
+    margin:0;
+    margin-top: 13px;
+}
+ul.image-list{
+    list-style: none;
+    margin-top: 22px;
+}
+ul.image-list li{
+    display: inline;
+    margin:3px 5px;
+}
+.slide-caption{
+    font-size:14px;
+    color: #FFF;
+    font-weight: bold;
+    background: url(../images/bg.png) repeat-x;
+    padding:9px 9px;
+}
+.cap1{
+    position: absolute;
+    top:100%;
+    left:20%;
+    font-size: 13px;
+    color: #037;
+    font-weight: bold;
+}
+.cap2{
+     position: absolute;
+    top:100%;
+    left:60%;
+    font-size: 13px;
+    color: #037;
+    font-weight: bold;
 }

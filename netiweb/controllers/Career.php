@@ -15,14 +15,20 @@ class Career extends CI_Controller{
         parent::__construct();
         $this->load->model("CareerModel");
         $this->load->helper("html");
+        $this->load->model('MenuModel');
+        $this->load->model('CareerModel');
         
     }
     //list available careers
     public function openJob()
     {
         $data['title'] = "Careers";
+        $data['menus'] = $this->MenuModel->getMainMenu();
+        $data['subs'] = $this->MenuModel->getSubMenu();
+        $data['MyClass'] =  $this;
+        $data['careers'] = $this->CareerModel->getCareer();
         $this->load->view('template/header', $data);
-        $this->load->view('home/career');
+        $this->load->view('home/career',$data);
         $this->load->view('template/footer');
     }
     // default action
@@ -127,4 +133,16 @@ class Career extends CI_Controller{
         $delete = $this->CareerModel->delete_career($career_id);
         redirect("career");
     }
+    public function isContainSub($pid)
+        {
+            $count = $this->MenuModel->countSub($pid);
+            $state=false;
+            if($count>0){
+                $state='yes';
+            }
+            else{
+                $state='no';
+            }
+            return $state;
+        }
 }

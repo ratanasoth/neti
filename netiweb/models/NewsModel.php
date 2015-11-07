@@ -18,6 +18,10 @@ class NewsModel extends CI_Model{
         $this->db->insert($this->news,$data);
         return $this;
     }
+    public function getNews(){
+        $this->db->order_by('orderno','asc');
+        return $this->db->get('news')->result();
+    }
     /*
      * This function is for selecting data news
      * Author: Theary RIN

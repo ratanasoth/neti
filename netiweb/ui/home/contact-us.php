@@ -54,6 +54,6 @@
 </div>
 <script>
     $(function(){
-        $("#contact").css('background','#428bca');
+        $("#menu14").css('background','#428bca');
     });
 </script>

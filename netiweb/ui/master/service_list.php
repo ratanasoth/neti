@@ -7,7 +7,7 @@
     </div>
     <div class="col-sm-6">
         <a href="<?php echo base_url('service/newservice'); ?>" 
-           class="btn btn-success btn-xs pull-right"><i class="glyphicon glyphicon-plus-sign"></i>Add New</a>
+           class="btn btn-success btn-xs pull-right"><i class="glyphicon glyphicon-plus-sign"></i> Add New</a>
     </div>
 </div>
 <div class="row">
@@ -33,8 +33,8 @@
                         echo "<td>".$rows->orderno."</td>";
                         echo "<td>".$rows->description."</td>";
                         echo "<td width='15%'>"
-                        . "<a href='".  base_url("service/editservice/".$rows->serviceid)."' class='btn-sm btn-primary' onclick='return confirm(\"Are you sure want to edit?\");'><i class='glyphicon glyphicon-edit'></i>Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;"
-                        . "<a href='".  base_url("service/delete/".$rows->serviceid)."' class='btn-sm btn-danger' onclick='return confirm(\"Are you sure want to delete?\");'><i class='glyphicon glyphicon-trash'></i>Delete</a>"
+                        . "<a href='".  base_url("service/editservice/".$rows->serviceid)."' class='btn-sm btn-primary' onclick='return confirm(\"Are you sure want to edit?\");'><i class='glyphicon glyphicon-edit'></i> Edit</a>&nbsp;&nbsp;&nbsp;&nbsp;"
+                        . "<a href='".  base_url("service/delete/".$rows->serviceid)."' class='btn-sm btn-danger' onclick='return confirm(\"Are you sure want to delete?\");'><i class='glyphicon glyphicon-trash'></i> Delete</a>"
                         . "</td>";
                     echo "</tr>";
                 }

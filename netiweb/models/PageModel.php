@@ -16,6 +16,15 @@ class PageModel extends CI_Model{
         return $query->result();
     }
     /**
+     * get page its id
+     */
+    public function getPageById($id)
+    {
+        $query = $this->db->get_where('page',array('pageid'=>$id));
+        return $query->result();
+    }
+
+    /**
      * Function to save new page to table.
      */
     public function addPage()
@@ -44,5 +53,24 @@ class PageModel extends CI_Model{
             $sms="New page has been created.";
         }
         return $sms;
+    }
+    /**
+     * Delete a page by its id
+     */
+    public function delete($id)
+    {
+        $this->db->delete('page', array('pageid'=>$id));
+    }
+    public function edit()
+    {
+        $id = $this->input->post('id');
+        $title = $this->input->post('title');
+        $description = $this->input->post('description');
+        $data= array(
+            'title'=>$title,
+            'description'=>$description
+        );
+        $this->db->where('pageid',$id);
+        $this->db->update('page',$data);
     }
 }

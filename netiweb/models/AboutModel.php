@@ -22,7 +22,10 @@ class AboutModel extends CI_Model{
        }
        return $this->db->get($this->t_about);
    }
-   
+   public function getAbout(){
+       $query = $this->db->get('about');
+       return $query->result();
+   }
    /**
     * this Function is for do update data about
     * Author: Theary RIN

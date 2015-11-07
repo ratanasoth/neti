@@ -12,6 +12,7 @@ class Page extends CI_Controller{
     public function __construct() {
         parent::__construct();
         $this->load->model('PageModel');
+        $this->load->model('MenuModel');
     }
     /**
      * Default action will list all created pages.
@@ -71,6 +72,65 @@ class Page extends CI_Controller{
      */
     public function view()
     {
+        $id = $this->uri->segment(3);
+        $data['title'] = "View Page";
+        $data['menus'] = $this->MenuModel->getMainMenu();
+        $data['page'] = $this->PageModel->getPageById($id);
+        $data['subs'] = $this->MenuModel->getSubMenu();
+        $data['MyClass'] =  $this;
+        $this->load->view('template/header', $data);
+        $this->load->view('template/page-view');
+        $this->load->view('template/footer');
+    }
+    public function isContainSub($pid)
+    {
+        $count = $this->MenuModel->countSub($pid);
+        $state=false;
+        if($count>0){
+            $state='yes';
+        }
+        else{
+            $state='no';
+        }
+        return $state;
+    }
+    /**
+     * Action function to delete a page by its id
+     */
+    public function delete()
+    {
+        if($this->session->userid==false)
+        {
+            redirect('admin/login');
+        }
+        $id = $this->uri->segment(3);
+        $this->PageModel->delete($id);
+        redirect(base_url('page'));
+    }
+    /**
+     * Edit a page by its id
+     */
+    public function editPage()
+    {
+        if($this->session->userid==false)
+        {
+            redirect('admin/login');
+        }
+        $id = $this->uri->segment(3);
+        $data['title'] = "Edit Page";
+        $data['sms'] = "";
+        $data['page'] = $this->PageModel->getPageById($id);
+        $this->load->view('master/header',$data);
+        $this->load->view('master/page-edit',$data);
+        $this->load->view('master/footer');
         
+    }
+    public function edit(){
+        if($this->session->userid==false)
+        {
+            redirect('admin/login');
+        }
+        $this->PageModel->edit();
+        redirect(base_url('page'));
     }
 }

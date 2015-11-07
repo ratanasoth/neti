@@ -17,7 +17,11 @@ class CareerModel extends CI_Model{
         parent::__construct();
     }
     private $t_career = "career";
-
+    public function getCareer()
+    {
+        $this->db->order_by('orderno','asc');
+        return $this->db->get('career')->result();
+    }
     /*
      * This function is for getting data from table career to show at view
      * Author: Theary RIN
@@ -29,7 +33,7 @@ class CareerModel extends CI_Model{
         if($id !=NULL){
             $this->db->where("{$this->t_career}.careerid",$id);
         }
-        $this->db->order_by("{$this->t_career}.orderno","DESC");
+        $this->db->order_by("{$this->t_career}.orderno","asc");
         return $this->db->get($this->t_career);
     }
     /*
