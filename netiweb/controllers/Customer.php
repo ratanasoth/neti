@@ -110,4 +110,49 @@ class Customer extends CI_Controller {
         $get_customer = $this->CustomerModel->delete_customer($customer_id);
         redirect("customer");
     }
+    /*
+     * This function is for edit page customer
+     * Author: Theary RIN
+     */
+    public function edit_customer($customer_id){
+        $data["title"] = "Edit Customer";
+        $data['list_customer'] = $this->CustomerModel->get_customer($customer_id);
+        $this->load->view('master/header', $data);
+        $this->load->view('master/customer_edit',$data);
+        $this->load->view('master/footer');
+    }
+    /*
+     * This function is for editting customer
+     * Author: Theary RIN
+     */
+    public function do_edit_customer($customer_id){
+        
+        $config['upload_path'] = 'assets/images/customer/';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $this->load->library("upload", $config);
+        
+            if ($this->upload->do_upload("image")) {
+                $upload_data = $this->upload->data();
+                $file_name = $upload_data['file_name'];
+                unlink($config['upload_path'].$this->input->post("old_img"));
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $file_name = $this->input->post("old_img");
+            }
+            
+            $data_insert = array(
+                
+                "customername" => $this->input->post("customername"),
+                "img" => $file_name,
+                "url" => $this->input->post("customerurl"),
+                "orderno" => $this->input->post("orderno"),
+            );
+
+           $result =  $this->CustomerModel->edit_customer($data_insert,$customer_id);
+           if($result){
+               redirect("customer");
+           }else{
+               redirect("customer/edit_customer/".$partner_id);
+           }
+    }
 }

@@ -123,5 +123,51 @@ class Partner extends CI_Controller {
         $get_partner = $this->PartnerModel->delete_partner($partner_id);
         redirect("partner");
     }
+    /*
+     * This function for edit page partner
+     * Author:Theary RIN
+     */
+    public function parnter_edit($partner_id){
+        
+        $data["title"]= "Edit Partner";
+        $data['list_partner'] = $this->PartnerModel->get_partner($partner_id);
+        $this->load->view('master/header', $data);
+        $this->load->view('master/partner_edit',$data);
+        $this->load->view('master/footer'); 
+    }
+    /*
+     * This function is for editting partner
+     * Author: Theary RIN
+     */
+    public function do_edit_partner($partner_id){
+        
+        $config['upload_path'] = 'assets/images/partner/';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $this->load->library("upload", $config);
+        
+            if ($this->upload->do_upload("image")) {
+                $upload_data = $this->upload->data();
+                $file_name = $upload_data['file_name'];
+                unlink($config['upload_path'].$this->input->post("old_img"));
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                $file_name = $this->input->post("old_img");
+            }
+            
+            $data_insert = array(
+                
+                "partnername" => $this->input->post("partnername"),
+                "img" => $file_name,
+                "url" => $this->input->post("partnerurl"),
+                "orderno" => $this->input->post("orderno"),
+            );
+
+           $result =  $this->PartnerModel->edit_partner($data_insert,$partner_id);
+           if($result){
+               redirect("partner");
+           }else{
+               redirect("partner/parnter_edit/".$partner_id);
+           }
+    }
 
 }
